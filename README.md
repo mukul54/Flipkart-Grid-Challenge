@@ -33,8 +33,7 @@
    
    Here is the actual bounding box(in blue) and the predicted bounding box(in red) from the traing set.
    
-   ![given bounding box in blue while predicted in red](https://github.com/mukul54/Flipkart_object_localization/blob/master/images/pred_det.png)
-
+   ![given bounding box in blue while predicted in red](https://github.com/mukul54/Flipkart-Grid-Challenge/blob/master/images/pred_det.png)
 ## Ideas Which Boosted Our Accuracy and helped in training
    
    - **Adding 4th Channel:**
@@ -47,5 +46,5 @@
         
 Here is the architecture of our model.
         
-   ![our model architecture](https://github.com/mukul54/Flipkart_object_localization/blob/master/images/model.png)
+   ![our model architecture](https://github.com/mukul54/Flipkart-Grid-Challenge/blob/master/images/model.png)
         
