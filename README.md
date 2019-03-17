@@ -31,7 +31,7 @@
 ## Problem
    We are given 24k images(around 15gb) of dimension 480x640 and the 4 co-ordinates(of the upper left corner and the lower right corner) of the bounding box as the label.We have to use supervised machine learning algorithm to predict the bounding box of the test images.
    
-   Here is the actual bounding box(in blue) and the predicted bounding box(in red) from the traing set.
+   Here is the actual bounding box(in blue) and the predicted bounding box(in red) from the training set.
    
    ![given bounding box in blue while predicted in red](https://github.com/mukul54/Flipkart-Grid-Challenge/blob/master/images/pred_det.png)
 ## Ideas Which Boosted Our Accuracy and helped in training
