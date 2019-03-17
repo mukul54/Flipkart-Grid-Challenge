@@ -2,6 +2,10 @@
 # coding: utf-8
 
 # In[ ]:
+#This is the model which we could not train due to the issue of memory
+# We tried to use full sized image in this model but could not handle it
+# Part of the code for model is inspired from https://gist.github.com/mjdietzx/0cb95922aac14d446a6530f87b3a04ce
+
 
 import pandas as pd
 import cv2
