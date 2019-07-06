@@ -208,14 +208,49 @@ model1 = load_model("model.h5")
 adam = optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 model1.compile(optimizer = adam,loss='mean_squared_error', metrics=['mae'])
 
+model1.set_weights(weigh)
+
+
+for x in range(48*15):
+    cnt = ((x%48)*500)+500
+    X_train = np.load('data_imgtrain'+str(cnt)+'.npy')
+    Y_train = np.load('data_lab'+str(cnt)+'.npy')
+    model1.fit(X_train, Y_train, epochs = 50, batch_size=32, callbacks = callbacks_list)
+    print('*********')
+    print((x+1)/48)
+    
+    
+    """  
+    for ori in range(1,4):
+        X_data = np.load('data_imgtrain'+str(cnt+(ori*24000))+'.npy')
+        Y_data = np.load('data_lab'+str(cnt+(ori*24000))+'.npy')
+        X_train = np.concatenate((X_train,X_data), axis = 0)
+        Y_train = np.concatenate((Y_train,Y_data), axis = 0)
+    np.random.seed(42)
+    np.random.shuffle(X_train)
+    np.random.seed(42)
+    np.random.shuffle(Y_train)
+    if ((x+1)%48) == 0:
+        weigh= model1.get_weights()
+        model1.save()
+        
+        pklfile= 'modelweights'+str((x+1)/48)+'.pkl'
+        try:
+	        fpkl= open(pklfile, 'wb')	#Python 3	 
+	        pickle.dump(weigh, fpkl, protocol= pickle.HIGHEST_PROTOCOL)
+	        fpkl.close()
+        except:
+    	    fpkl= open(pklfile, 'w')	#Python 2 	 
+    	    pickle.dump(weigh, fpkl, protocol= pickle.HIGHEST_PROTOCOL)
+    	    fpkl.close()
+         
 df = pd.read_csv('test.csv')
 c1 = 0
 d1 = 0
 for index, row in df.iterrows():
     path = './images/' + row['image_name']
     img = cv2.imread(path)
-    img = cv2.resize(img, (224,224))
-    edges = cv2.Canny(img,100,255)
+    edges = cv2.Canny(img,50,255)
     #print(edges[:,:,np.newaxis].shape)
     img = np.concatenate((img,edges[:,:,np.newaxis]), axis = 2)
     img = img[np.newaxis,:,:,:]
@@ -226,3 +261,5 @@ for index, row in df.iterrows():
         predictions = np.concatenate((predictions,prediction), axis = 0)
     print(index)
 np.save('preds.npy', predictions)
+
+"""
