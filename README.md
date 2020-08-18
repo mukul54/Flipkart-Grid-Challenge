@@ -43,8 +43,3 @@
    - **Reducing the number of channels in the hidden layers of resnet50:**
         
         Since we were limited by the resources(GPU and Graphics memory) and time (due to coming midsem) we thought using large number of channels won't be helpful. The major reason was again the problem, since it tis not the classification problem our network need not learn a large number of features. More channels make it sure that a large number of features are learnt in case of classification problem. Our problem was more like a regression problem with four output. We didn't check the actual accuracy but reducing the number of channels in resnet50 indeed halved the number of features in resnet50 from around 11M to 5.9M which fasten the training process.
-        
-Here is the architecture of our model.
-        
-   ![our model architecture](https://github.com/mukul54/Flipkart-Grid-Challenge/blob/master/images/model.png)
-        
